@@ -2,6 +2,12 @@ The issue occurs because of a conflict between Symfony's debug mode and the abse
 
 <img width="1059" height="684" alt="image" src="https://github.com/user-attachments/assets/26747b07-ea6a-409d-85c0-98b6c1470d46" />
 
+To trigger the issue (assuming docker / database is set up):
+```
+php bin/console app:messenger_test -vv
+php bin/console messenger:consume -vv
+```
+
 Why it happens: 
   
 1. In the dev environment, Symfony's `kernel.debug` is true. This causes `FrameworkBundle` to 
